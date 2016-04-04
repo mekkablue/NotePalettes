@@ -220,8 +220,9 @@ class GlyphNote ( NSObject, GlyphsPaletteProtocol ):
 		try:
 			thisGlyph = None
 			windowController = self.currentWindowController(sender)
-			if windowController.activeLayer():
-				thisGlyph = windowController.activeLayer().glyph()
+			layer = windowController.activeLayer()
+			if layer != None:
+				thisGlyph = layer.parent
 			
 			if thisGlyph:
 				# update glyph note in palette:
