@@ -128,7 +128,6 @@ class GlyphNote ( NSObject, GlyphsPaletteProtocol ):
 		The minimum height of the view in pixels.
 		"""
 		try:
-			# print "__minHeight"
 			return 30
 		except Exception as e:
 			self.logToConsole( "minHeight: %s" % str(e) )
@@ -139,7 +138,6 @@ class GlyphNote ( NSObject, GlyphsPaletteProtocol ):
 		Must be equal to or bigger than minHeight.
 		"""
 		try:
-			# print "__maxHeight"
 			return 150
 		except Exception as e:
 			self.logToConsole( "maxHeight: %s" % str(e) )
