@@ -45,11 +45,13 @@ class FontNote (PalettePlugin):
 
 	def update( self, sender ):
 		try:
-			Font = None
-			windowController = self.currentWindowController( sender )
-			Font = windowController.document().font
-			if Font:
-				thisFontNote = Font.note
+			print "update!"
+			print sender
+			print self.currentWindowController()
+			print self.windowController()
+			thisFont = self.windowController().document().font
+			if thisFont:
+				thisFontNote = thisFont.note
 				if thisFontNote:
 					self.textField.setStringValue_( thisFontNote )
 				else:
@@ -80,10 +82,8 @@ class FontNote (PalettePlugin):
 	@objc.IBAction
 	def setCurrentFontNote_( self, sender ):
 		try:
-			newNote = self.textField.stringValue()
-			windowController = self.currentWindowController( sender )
-			Font = windowController.document().font
-			Font.note = newNote
+			thisFont = self.windowController().document().font
+			thisFont.note = self.textField.stringValue()
 		except Exception as e:
 			self.logToConsole( "setCurrentFontNote_: %s" % str(e) )
 	
