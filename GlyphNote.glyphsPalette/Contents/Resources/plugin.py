@@ -1,15 +1,13 @@
 # encoding: utf-8
 
-###########################################################################################################
-#
+#######################################################################################
 #
 #	Palette Plugin
 #
 #	Read the docs:
 #	https://github.com/schriftgestalt/GlyphsSDK/tree/master/Python%20Templates/Palette
 #
-#
-###########################################################################################################
+#######################################################################################
 
 
 from GlyphsApp.plugins import *
@@ -21,6 +19,7 @@ class GlyphNote (PalettePlugin):
 	
 	def settings(self):
 		self.name = Glyphs.localize({'en': u'Glyph Note', 'de': u'Glyphennotiz'})
+		self.dialogName = Glyphs.localize({'en': u'Glyph Note', 'de': u'Glyphennotiz'})
 		
 		# Load .nib dialog (without .extension)
 		self.loadNib('IBdialog', __file__)
