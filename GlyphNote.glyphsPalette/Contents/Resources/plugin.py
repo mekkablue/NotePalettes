@@ -122,14 +122,10 @@ class GlyphNote (PalettePlugin):
 		return __file__
 	
 	# Temporary Fix
-	# Sort ID for compatibility since v919:
-	_sortID = 0
+	# Sort ID for compatibility with v919 to v976
 	def setSortID_(self, id):
-		try:
-			self._sortID = id
-		except Exception as e:
-			self.logToConsole( "setSortID_: %s" % str(e) )
-			
+		pass
+	
 	def sortID(self):
-		return self._sortID
+		return 0
 	
