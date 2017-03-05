@@ -1,40 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment version="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="FontNote">
             <connections>
                 <outlet property="dialog" destination="1" id="Tkv-lP-HY5"/>
-                <outlet property="textField" destination="qQC-Rp-2PW" id="L4E-iu-DiJ"/>
+                <outlet property="noteTextField" destination="LcX-vB-30v" id="Cnn-QQ-y1n"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView wantsLayer="YES" id="1" customClass="GSPaletteView">
-            <rect key="frame" x="0.0" y="0.0" width="164" height="120"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+        <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1" customClass="GSPaletteView">
+            <rect key="frame" x="0.0" y="0.0" width="164" height="135"/>
             <subviews>
-                <textField toolTip="Type any text here to change the current font note." horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" id="qQC-Rp-2PW">
-                    <rect key="frame" x="-1" y="2" width="166" height="118"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <textFieldCell key="cell" controlSize="small" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Note for the font" drawsBackground="YES" id="TiB-f9-5qc">
+                <textField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="LcX-vB-30v" userLabel="Font Note Text Field">
+                    <rect key="frame" x="-1" y="3" width="166" height="132"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="XWE-sT-2ML"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="b3O-3I-rg3"/>
+                    </constraints>
+                    <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" placeholderString="Type font note here." drawsBackground="YES" id="2ph-fC-SeP">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
-                    <accessibility description="Font note"/>
                     <connections>
-                        <action selector="setCurrentFontNote:" target="-2" id="E8c-Hs-8U1"/>
+                        <action selector="setNote:" target="-2" id="g9k-UF-JtK"/>
                     </connections>
                 </textField>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LcX-vB-30v" secondAttribute="trailing" constant="-1" id="23n-Gj-kQf"/>
+                <constraint firstItem="LcX-vB-30v" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="-1" id="6vz-BG-sYA"/>
+                <constraint firstItem="LcX-vB-30v" firstAttribute="top" secondItem="1" secondAttribute="top" id="Grn-k0-V5q"/>
+                <constraint firstAttribute="bottom" secondItem="LcX-vB-30v" secondAttribute="bottom" constant="3" id="Rva-RI-1W4"/>
+            </constraints>
             <connections>
                 <outlet property="_controller" destination="-2" id="jOT-R9-oyt"/>
             </connections>
-            <point key="canvasLocation" x="591" y="367"/>
+            <point key="canvasLocation" x="275" y="-65.5"/>
         </customView>
     </objects>
 </document>
