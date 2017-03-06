@@ -49,8 +49,6 @@ class FontNote (PalettePlugin):
 	
 	def update(self, sender):
 		try:
-			print "update Font note!"
-			NSLog("update!")
 			thisFont = self.windowController().document().font
 			if thisFont:
 				thisFontNote = thisFont.note
@@ -60,7 +58,7 @@ class FontNote (PalettePlugin):
 				self.noteTextField.setStringValue_(thisFontNote)
 			
 		except:
-			print traceback.format_exc()
+			self.logError(traceback.format_exc())
 	
 	def __file__(self):
 		"""Please leave this method unchanged"""
