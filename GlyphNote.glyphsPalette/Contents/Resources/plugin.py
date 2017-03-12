@@ -56,11 +56,11 @@ class GlyphNote (PalettePlugin):
 				thisGlyph.note = enteredText
 				
 		except Exception as e:
+			import traceback
 			self.logError(traceback.format_exc())
 	
 	def update(self, sender):
 		try:
-			print "update Glyph note!"
 			theseGlyphs = []
 			thisFont = self.windowController().document().font
 		
