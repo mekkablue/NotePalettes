@@ -23,8 +23,8 @@ class FontNote (PalettePlugin):
 		"""
 		The minimum/maximum height of the view in pixels. 'max' must be bigger than 'min'.
 		"""
-		#self.min = 30
-		#self.max = 400
+		self.min = 30
+		self.max = 400
 
 		# Load .nib dialog (without .extension)
 		self.loadNib('IBdialog', __file__)
@@ -32,10 +32,7 @@ class FontNote (PalettePlugin):
 	def start(self):
 		# Adding a callback:
 		NSNotificationCenter.defaultCenter().addObserver_selector_name_object_(self, self.update, UPDATEINTERFACE, objc.nil)
-		self.theView().setController_(self)
-		self.min = 30
-		self.max = 400
-	
+
 	def __del__(self):
 		NSNotificationCenter.defaultCenter().removeObserver_(self)
 	
