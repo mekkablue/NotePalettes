@@ -15,6 +15,7 @@ from Foundation import NSLog
 
 class FontNote (PalettePlugin):
 	
+	dialogName = "com.mekkablue.FontNote"
 	dialog = objc.IBOutlet()
 	noteTextField = objc.IBOutlet()
 	
@@ -24,7 +25,7 @@ class FontNote (PalettePlugin):
 		The minimum/maximum height of the view in pixels. 'max' must be bigger than 'min'.
 		"""
 		self.min = 30
-		self.max = 400
+		self.max = 700
 
 		# Load .nib dialog (without .extension)
 		self.loadNib('IBdialog', __file__)
@@ -46,14 +47,14 @@ class FontNote (PalettePlugin):
 	
 	def update(self, sender):
 		try:
-			thisFont = self.windowController().document().font
-			if thisFont:
-				thisFontNote = thisFont.note
-				
-				if not thisFontNote:
-					thisFontNote = ""
-				self.noteTextField.setStringValue_(thisFontNote)
-			
+			# only update if there is a window:
+			if self.windowController():
+				thisFont = self.windowController().document().font
+				if thisFont:
+					thisFontNote = thisFont.note
+					if not thisFontNote:
+						thisFontNote = ""
+					self.noteTextField.setStringValue_(thisFontNote)
 		except:
 			self.logError(traceback.format_exc())
 	
