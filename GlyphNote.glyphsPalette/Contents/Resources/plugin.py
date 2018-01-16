@@ -9,9 +9,9 @@
 #
 #######################################################################################
 
-import objc
-from GlyphsApp import *
+from objc import IBOutlet, IBAction, nil
 from GlyphsApp.plugins import *
+from GlyphsApp import UPDATEINTERFACE
 
 class GlyphNote (PalettePlugin):
 	dialogName = "com.mekkablue.GlyphNote"
@@ -32,11 +32,10 @@ class GlyphNote (PalettePlugin):
 		self.loadNib('IBdialog', __file__)
 	
 	def start(self):
-		# Adding a callback:
-		NSNotificationCenter.defaultCenter().addObserver_selector_name_object_(self, self.update, UPDATEINTERFACE, objc.nil)
-	
+		Glyphs.addCallback(self.update, UPDATEINTERFACE)
+
 	def __del__(self):
-		NSNotificationCenter.defaultCenter().removeObserver_(self)
+		Glyphs.removeCallback(self.update, UPDATEINTERFACE)
 	
 	@objc.IBAction
 	def setNote_(self, sender):

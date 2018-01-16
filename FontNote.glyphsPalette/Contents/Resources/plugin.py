@@ -20,13 +20,12 @@ class FontNote (PalettePlugin):
 	noteTextField = objc.IBOutlet()
 	
 	def settings(self):
-		"""
-		The minimum/maximum height of the view in pixels. 'max' must be bigger than 'min'.
-		"""
 		self.name = Glyphs.localize({
 			'en': u'Font Note',
 			'de': u'Schriftnotizen',
 		})
+
+		# The minimum/maximum height of the view in pixels. 'max' must be bigger than 'min'.
 		self.min = 30
 		self.max = 700
 
