@@ -11,7 +11,7 @@
 
 
 from GlyphsApp.plugins import *
-from Foundation import NSLog
+from GlyphsApp import UPDATEINTERFACE
 
 class FontNote (PalettePlugin):
 	
@@ -20,10 +20,13 @@ class FontNote (PalettePlugin):
 	noteTextField = objc.IBOutlet()
 	
 	def settings(self):
-		self.name = Glyphs.localize({'en': u'Font Note', 'de': u'Schriftnotizen'})
 		"""
 		The minimum/maximum height of the view in pixels. 'max' must be bigger than 'min'.
 		"""
+		self.name = Glyphs.localize({
+			'en': u'Font Note',
+			'de': u'Schriftnotizen',
+		})
 		self.min = 30
 		self.max = 700
 
@@ -31,32 +34,25 @@ class FontNote (PalettePlugin):
 		self.loadNib('IBdialog', __file__)
 	
 	def start(self):
-		# Adding a callback:
-		NSNotificationCenter.defaultCenter().addObserver_selector_name_object_(self, self.update, UPDATEINTERFACE, objc.nil)
+		Glyphs.addCallback(self.update, UPDATEINTERFACE)
 
 	def __del__(self):
-		NSNotificationCenter.defaultCenter().removeObserver_(self)
+		Glyphs.removeCallback(self.update, UPDATEINTERFACE)
 	
 	@objc.IBAction
 	def setNote_(self, sender):
-		try:
-			thisFont = self.windowController().document().font
-			thisFont.note = self.noteTextField.stringValue()
-		except Exception as e:
-			self.logError(traceback.format_exc())
+		thisFont = self.windowController().document().font
+		thisFont.note = self.noteTextField.stringValue()
 	
 	def update(self, sender):
-		try:
-			# only update if there is a window:
-			if self.windowController():
-				thisFont = self.windowController().document().font
-				if thisFont:
-					thisFontNote = thisFont.note
-					if not thisFontNote:
-						thisFontNote = ""
-					self.noteTextField.setStringValue_(thisFontNote)
-		except:
-			self.logError(traceback.format_exc())
+		# only update if there is a window:
+		if self.windowController():
+			thisFont = self.windowController().document().font
+			if thisFont:
+				thisFontNote = thisFont.note
+				if not thisFontNote:
+					thisFontNote = ""
+				self.noteTextField.setStringValue_(thisFontNote)
 	
 	def __file__(self):
 		"""Please leave this method unchanged"""
