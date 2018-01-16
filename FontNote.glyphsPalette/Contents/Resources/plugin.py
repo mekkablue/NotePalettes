@@ -9,9 +9,11 @@
 #
 #######################################################################################
 
-
+import objc
+from GlyphsApp import *
 from GlyphsApp.plugins import *
 from Foundation import NSLog
+import traceback
 
 class FontNote (PalettePlugin):
 	
