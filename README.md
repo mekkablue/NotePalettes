@@ -6,18 +6,15 @@ These are plugins for the [Glyphs font editor](http://glyphsapp.com/) by Georg S
 
 The **font note** is now accessible through *File > Font Info > Notes*, which makes the Font Note plugin obsolete. I therefore do not recommend installing the Font Note plugin anymore.
 
-The **glyph note** is otherwise only visible in the Font tab, switched to List mode, and if the *Note* column is set to show (right-click on the column headers).
-
 ### Installation
 
-1. Install the Glyph Note plugin via *Window > Plugin Manager*
+1. Install *Glyph Note* via *Window > Plugin Manager*
 2. Restart Glyphs.
 
-If you cannot use the Plugin Manager, follow these steps:
+To also install *Font Note:*
 
-1. Download the complete ZIP file and unpack it, or clone the repository.
-2. Double click the .glyphsPalette files. Confirm the dialogs that appear in Glyphs.
-3. Restart Glyphs.
+1. Create an alias of *FontNote.glyphsPalette* in `~/Library/Application Support/Glyphs/Repositories/GlyphNote/`
+2. Move the alias to `~/Library/Application Support/Glyphs/Plugins/`
 
 ### Usage
 
@@ -33,7 +30,7 @@ Recent versions of Glyphs and macOS. I can only test and guarantee its functiona
 ### License
 
 Copyright 2015 Rainer Erich Scheichelbauer (@mekkablue).
-Based on sample code by Georg Seifert (@schriftgestalt).
+Based on sample code by Georg Seifert (@schriftgestalt) and Jan Gerner (@yanone).
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
