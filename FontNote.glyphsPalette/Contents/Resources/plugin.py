@@ -40,13 +40,16 @@ class FontNote (PalettePlugin):
 	
 	@objc.IBAction
 	def setNote_(self, sender):
-		thisFont = self.windowController().document().font
-		thisFont.note = self.noteTextField.stringValue()
+		windowController = self.windowController()
+		if windowController:
+			thisFont = windowController.document().font
+			thisFont.note = self.noteTextField.stringValue()
 	
 	def update(self, sender):
 		# only update if there is a window:
-		if self.windowController():
-			thisFont = self.windowController().document().font
+		windowController = self.windowController()
+		if windowController:
+			thisFont = windowController.document().font
 			if thisFont:
 				thisFontNote = thisFont.note
 				if not thisFontNote:
