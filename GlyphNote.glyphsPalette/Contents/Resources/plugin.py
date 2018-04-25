@@ -71,11 +71,13 @@ class GlyphNote (PalettePlugin):
 
 			allNotes = []
 			for thisGlyph in theseGlyphs:
-				thisNote = thisGlyph.note
-				if thisNote == "":
-					thisNote = None
-				allNotes.append(thisNote)
-
+				try:
+					thisNote = thisGlyph.note
+					if thisNote == "":
+						thisNote = None
+					allNotes.append(thisNote)
+				except:
+					pass # can happen with control layers
 			numberOfDifferentNotes = len(set(allNotes))
 
 			# update glyph note in palette:
@@ -84,7 +86,7 @@ class GlyphNote (PalettePlugin):
 					'en': u'Empty glyph note%s.' % ("s" if len(theseGlyphs)>1 else ""),
 					'de': u'Leere Glyphennotiz%s.' % ("en" if len(theseGlyphs)>1 else ""),
 				}))
-				thisGlyphNote = theseGlyphs[0].note
+				thisGlyphNote = allNotes[0]
 				if not thisGlyphNote:
 					thisGlyphNote = ""
 				self.noteTextField.setStringValue_(thisGlyphNote)
