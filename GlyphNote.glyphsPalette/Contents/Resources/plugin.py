@@ -43,18 +43,21 @@ class GlyphNote (PalettePlugin):
 		Sets the glyph note to whatever has been entered
 		into the text field in the palette.
 		"""
-		# Extract font from sender
-		thisFont = self.windowController().document().font
-
-		# We’re in the Edit View
-		if thisFont.currentTab:
-			theseGlyphs = [l.parent for l in thisFont.selectedLayers]
-		# We’re in the Font view
-		else:
-			theseGlyphs = [g for g in thisFont.selection]
 		
-		for thisGlyph in theseGlyphs:
-			thisGlyph.note = self.noteTextField.stringValue()
+		if self.windowController():
+			
+			# Extract font from sender
+			thisFont = self.windowController().document().font
+
+			# We’re in the Edit View
+			if thisFont.currentTab:
+				theseGlyphs = [l.parent for l in thisFont.selectedLayers]
+			# We’re in the Font view
+			else:
+				theseGlyphs = [g for g in thisFont.selection]
+		
+			for thisGlyph in theseGlyphs:
+				thisGlyph.note = self.noteTextField.stringValue()
 	
 	def update(self, sender):
 		# only update if there is a window:
