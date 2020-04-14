@@ -24,9 +24,10 @@ class GlyphNote (PalettePlugin):
 	@objc.python_method
 	def settings(self):
 		self.name = Glyphs.localize({
-			'en': u'Glyph Note',
-			'de': u'Glyphennotiz',
-			'es': u'Nota de glifo',
+			'en': 'Glyph Note',
+			'de': 'Glyphennotiz',
+			'es': 'Nota de glifo',
+			'fr': 'Notes du glyphe',
 		})
 		
 		# The minimum/maximum height of the view in pixels. 'max' must be bigger than 'min'.
@@ -96,6 +97,7 @@ class GlyphNote (PalettePlugin):
 				self.noteTextField.setPlaceholderString_( Glyphs.localize({
 					'en': u'Empty glyph note%s.' % ("s" if len(theseGlyphs)>1 else ""),
 					'de': u'Leere Glyphennotiz%s.' % ("en" if len(theseGlyphs)>1 else ""),
+					'fr': u'Note%s vide%s.' % ("s" if len(theseGlyphs)>1 else "", "s" if len(theseGlyphs)>1 else ""),
 					'es': u'Nota%s vacía%s.' % ("s" if len(theseGlyphs)>1 else "", "s" if len(theseGlyphs)>1 else ""),
 				}))
 				thisGlyphNote = allNotes[0]
@@ -107,6 +109,7 @@ class GlyphNote (PalettePlugin):
 				self.noteTextField.setPlaceholderString_(Glyphs.localize({
 					'en': u'No glyph selected.',
 					'de': u'Keine Glyphe ausgewählt.',
+					'fr': u'Aucun glyphe sélectionné.',
 					'es': u'Ningún glifo seleccionado.',
 				}))
 				self.noteTextField.setStringValue_("")
@@ -115,6 +118,7 @@ class GlyphNote (PalettePlugin):
 				self.noteTextField.setPlaceholderString_(Glyphs.localize({
 					'en': u'Multiple values.',
 					'de': u'Mehrere Werte.',
+					'fr': u'Valeurs divers.',
 					'es': u'Valores múltiples.',
 				}))
 				self.noteTextField.setStringValue_("")
