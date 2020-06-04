@@ -13,15 +13,15 @@
 	<key>CFBundleName</key>
 	<string>GlyphNote</string>
 	<key>CFBundleVersion</key>
-	<string>16</string>
+	<string>17</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0</string>
+	<string>3.0.1</string>
 	<key>UpdateFeedURL</key>
 	<string>https://raw.githubusercontent.com/mekkablue/NotePalettes/master/GlyphNote.glyphsPalette/Contents/Info.plist</string>
 	<key>productPageURL</key>
 	<string>https://github.com/mekkablue/NotePalettes</string>
 	<key>productReleaseNotes</key>
-	<string>Glyphs 3 compatibility.</string>
+	<string>Updated plugin binary.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright, Rainer Erich Scheichelbauer, 2015-2018</string>
 	<key>NSPrincipalClass</key>
