@@ -12,16 +12,10 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>FontNote</string>
-	<key>CFBundleVersion</key>
-	<string>12</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.3</string>
-	<key>UpdateFeedURL</key>
-	<string>https://raw.githubusercontent.com/mekkablue/NotePalettes/master/FontNote.glyphsPalette/Contents/Info.plist</string>
-	<key>productPageURL</key>
-	<string>https://github.com/mekkablue/NotePalettes</string>
-	<key>productReleaseNotes</key>
-	<string>Glyphs 3 compatibility.</string>
+	<string>2.4</string>
+	<key>CFBundleVersion</key>
+	<string>13</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright, Rainer Erich Scheichelbauer, 2016</string>
 	<key>NSPrincipalClass</key>
@@ -30,5 +24,11 @@
 	<array>
 		<string>plugin.py</string>
 	</array>
+	<key>UpdateFeedURL</key>
+	<string>https://raw.githubusercontent.com/mekkablue/NotePalettes/master/FontNote.glyphsPalette/Contents/Info.plist</string>
+	<key>productPageURL</key>
+	<string>https://github.com/mekkablue/NotePalettes</string>
+	<key>productReleaseNotes</key>
+	<string>update binary files for Glyphs3</string>
 </dict>
 </plist>
