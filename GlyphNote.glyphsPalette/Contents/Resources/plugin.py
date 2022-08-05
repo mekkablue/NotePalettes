@@ -73,6 +73,10 @@ class GlyphNote (PalettePlugin):
 		if self.windowController():
 			theseGlyphs = []
 			thisFont = self.windowController().document().font
+			if not thisFont:
+				return
+			if thisFont != sender.object():
+				return
 	
 			# We’re in the Edit View
 			if thisFont.currentTab:
